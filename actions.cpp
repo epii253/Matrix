@@ -47,7 +47,7 @@ Matrix actions_matrix::multiply_matrix( Matrix& A, Matrix& B )
 {if( A.get_collumns() != B.get_rows() || A.get_rows() != B.get_collumns() ){ throw std::logic_error(" Matrixes doesn't have same sizes. (Multiplying)"); } //error matrix
     Matrix answ( A.get_rows() , B.get_collumns() , 0 );
 
-    for( int i = 0; i < A.get_rows(); i++ ) //TODO: вынестив отдельную переменную размеры
+    for( int i = 0; i < A.get_rows(); i++ ) //TODO: вынестив отдельную .. переменную размеры
     {
         for( int j = 0; j < B.get_collumns(); j++ ){ answ.get_matix()->at(i).at(j) = sum_of_products( A.get_matix()->at(i) , B , j ); }
     }
