@@ -1,6 +1,6 @@
 #include <actions.cpp>
 #include <matrix.cpp>
-#include <cassert> //не получилось
+#include <cassert> // пока не используется
 
 int main()
 {
@@ -13,8 +13,7 @@ int main()
 
     Matrix A ({{ 7  , 89 },
                { 85 , 77},
-               { 4  , 22 }
-              });
+               { 4  , 22 }});
 
     Matrix B ({{7 , 10} ,
                {8 , 11} ,

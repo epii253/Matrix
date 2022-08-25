@@ -1,10 +1,10 @@
 #include <actions.h>
 
-int actions_matrix::sum_of_products( std::vector<int>& row , Matrix B , int collumn)
+int actions_matrix::sum_of_products( std::vector<int>& row , Matrix& B , int collumn)
 {
     int sum = 0;
     for( int i = 0; i < row.size() ;i++ )
-    { sum += row.at(i)*B.get_matix()->at(i).at(collumn); }
+    { sum += row.at(i) * B.get_matix()->at(i).at(collumn); }
 
     return sum;
 }
@@ -55,7 +55,7 @@ Matrix actions_matrix::multiply_matrix( Matrix& A, Matrix& B )
     return answ;
 }
 
-int actions_matrix::calculate_main_axis( Matrix A )
+int actions_matrix::calculate_main_axis( Matrix& A )
 {   int sum = 0;
     for( int i = 0; i < std::min( A.get_rows() , A.get_collumns() ) ;i++ )
     {
@@ -65,7 +65,7 @@ int actions_matrix::calculate_main_axis( Matrix A )
     return sum;
 }
 
-int actions_matrix::calculate_side_axis( Matrix A )
+int actions_matrix::calculate_side_axis( Matrix& A )
 {
     int sum = 0;
     for( int i = 0; i < std::min(A.get_collumns() , A.get_rows()) ;i++ )
