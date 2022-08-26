@@ -23,9 +23,8 @@ Matrix::Matrix( int n , int m , int item )
 {   if( n >= 0 ){ rows = n; } else { rows = 0; }
     if( m >= 0 ){ collumns = m;} else { collumns = 0; }
 
-    std::vector<int> row( collumns , item ); //TODO: upgrade
-    std::vector<std::vector<int>> t_matrix({row});
-    for( int i = 1; i < n  ;i++ ){ t_matrix.push_back(row); }
+    std::vector<int> row( collumns , item );
+    std::vector<std::vector<int>> t_matrix(rows , row);
 
     matrix = std::make_unique< std::vector<std::vector<int>> >(t_matrix);
 }
