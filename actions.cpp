@@ -20,9 +20,6 @@ Matrix actions_matrix::add_matrix( Matrix& A, Matrix& B )
             answ.get_matix()->at(i).at(j) = A.get_matix()->at(i).at(j) + B.get_matix()->at(i).at(j);
         }
     }
-
-    answ.set_rows( A.get_rows() );
-    answ.set_collumns( A.get_collumns() );
  return answ;
 }
 
@@ -38,16 +35,14 @@ Matrix actions_matrix::sub_matrix( Matrix& A, Matrix& B )
         }
     }
 
-    answ.set_rows( A.get_rows() );
-    answ.set_collumns( A.get_collumns() );
- return answ;
+    return answ;
 }
 
 Matrix actions_matrix::multiply_matrix( Matrix& A, Matrix& B )
 {if( A.get_collumns() != B.get_rows() || A.get_rows() != B.get_collumns() ){ throw std::logic_error(" Matrixes doesn't have same sizes. (Multiplying)"); } //error matrix
     Matrix answ( A.get_rows() , B.get_collumns() , 0 );
 
-    for( int i = 0; i < A.get_rows(); i++ )
+    for( int i = 0; i < A.get_rows(); i++ ) //TODO: вынестив отдельную .. переменную размеры
     {
         for( int j = 0; j < B.get_collumns(); j++ ){ answ.get_matix()->at(i).at(j) = sum_of_products( A.get_matix()->at(i) , B , j ); }
     }
@@ -73,3 +68,28 @@ int actions_matrix::calculate_side_axis( Matrix A )
 
     return sum;
 }
+
+Matrix actions_matrix::transpose( Matrix& A )
+{
+    Matrix T( A.get_collumns() , A.get_rows() , 0 );
+
+    for( int i = 0; i < A.get_rows() ;i++ )
+    {
+        for( int j = 0; j < A.get_collumns() ;j++ )
+        {
+            T.get_matix()->at(j).at(i) = A.get_matix()->at(i).at(j);
+        }
+    }
+
+    return T;
+}
+
+void actions_matrix::drow_matrix( Matrix A )
+{
+    for( auto& it : *A.get_matix() )
+    {
+        for( auto& num : it ){ std::cout << num << " "; } std::cout << "" << std::endl;
+    }
+
+}
+
