@@ -11,6 +11,9 @@ namespace actions_matrix {
     int calculate_main_axis( Matrix A );
     int calculate_side_axis( Matrix A );
     int sum_of_products( std::vector<int>& row , Matrix B , int collumn );
+    Matrix transpose( Matrix& A );
+
+    void drow_matrix( Matrix A );
 
     //hard, but (later)
     void push_row( std::vector<int>  row);
