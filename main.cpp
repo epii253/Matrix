@@ -1,6 +1,6 @@
 #include <actions.cpp>
 #include <matrix.cpp>
-#include <cassert> //не получилось
+#include <cassert> //не используется
 
 using namespace actions_matrix;
 
@@ -32,6 +32,7 @@ int main()
 
         //решение задачи:
         //Условие: D = A^T*(C^T-B*A) //значения лень придумывать
+        //Matrix D = multiply_matrix(transpose(A), sub_matrix(transpose(C), multiply_matrix(B, A)));
     }
     catch( std::logic_error err ){ std::cout << "Error: " << err.what() << std::endl; }
 
