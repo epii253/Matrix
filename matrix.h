@@ -27,7 +27,6 @@ public:
     inline void set_rows( int row ){ this->rows = row; }
     inline void set_collumns( int collumn ){ this->collumns = collumn; }
 
-    //virtual Matrix& operator*( int k , Matrix& A);
     virtual Matrix& operator=( Matrix n );
 };
 
